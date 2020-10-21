@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: otus-demo
+spec:
+    replicas: 2
+    selector:
+       matchLabels:
+          app: otus-demo
+    template:
+       metadata:
+          labels:
+             app: otus-demo
+       spec:
+          containers:
+          - name: otus-demo
+            image: zetsuboutoshio/otus-demo:latest
+            ports:
+              - name: web 
+                containerPort: 8000
+            livenessProbe:
+              httpGet:
+                port: 8000
+                path: /health
+              initialDelaySeconds: 30
+              periodSeconds: 5
+              timeoutSeconds: 2
+            readinessProbe:
+              httpGet:
+                port: 8000
+                path: /health
+              initialDelaySeconds: 30
+              periodSeconds: 5
