@@ -1,3 +1,6 @@
+# Подготовка
+Прописать из minikube ip в /etc/hosts для хоста arch.homework
+
 # Подергать:
 
-curl -H 'Host: arch.homework' http://{INGRESS_HOST}/otusapp/vtimoshenko/health
+curl http://arch.homework/otusapp/vtimoshenko/health
