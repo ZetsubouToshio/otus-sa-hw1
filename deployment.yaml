@@ -14,7 +14,7 @@ spec:
        spec:
           containers:
           - name: otus-demo
-            image: zetsuboutoshio/otus-demo:latest
+            image: zetsuboutoshio/otus-demo:0.0.1
             ports:
               - name: web 
                 containerPort: 8000
@@ -22,12 +22,12 @@ spec:
               httpGet:
                 port: 8000
                 path: /health
-              initialDelaySeconds: 30
+              initialDelaySeconds: 60
               periodSeconds: 5
               timeoutSeconds: 2
             readinessProbe:
               httpGet:
                 port: 8000
                 path: /health
-              initialDelaySeconds: 30
+              initialDelaySeconds: 60
               periodSeconds: 5
